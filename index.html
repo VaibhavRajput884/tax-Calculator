@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="index.css" />
+        <title>Tax Calculator</title>
+    </head>
+    <body>
+        <form id="tax-form">
+            <h2>Tax Calculator</h2>
+            <div class="form-item-container">
+                <div class="form-item">
+                    <label for="gross-income" class="form-label">
+                        <span>Enter gross annual income</span>
+                        <span class="tooltip-button">
+                            <span>?</span>
+                            <span class="tooltip">
+                                Gross annual income is your total salary in a
+                                year before any deductions
+                            </span>
+                        </span>
+                    </label>
+                    <div class="form-input-holder">
+                        <input
+                            id="gross-income"
+                            type="text"
+                            class="form-input"
+                            name="gross-income"
+                            placeholder="Enter gross annual income"
+                            autocomplete="off"
+                        />
+                        <span
+                            class="tooltip-button warning-button hidden"
+                            id="gross-warning-button"
+                        >
+                            <span>!</span>
+                            <span class="tooltip">
+                                Gross income must be a valid non-negative number
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="extra-income" class="form-label">
+                        <span>Enter extra income</span>
+                        <div class="tooltip-button">
+                            <span>?</span>
+                            <span class="tooltip">
+                                Extra income is your income from sources other
+                                than salary
+                            </span>
+                        </div>
+                    </label>
+                    <div class="form-input-holder">
+                        <input
+                            id="extra-income"
+                            type="text"
+                            class="form-input"
+                            name="extra-income"
+                            placeholder="Enter extra income from other sources"
+                            autocomplete="off"
+                        />
+                        <span
+                            class="tooltip-button warning-button hidden"
+                            id="extra-warning-button"
+                        >
+                            <span>!</span>
+                            <span class="tooltip">
+                                Extra income must be a valid non-negative number
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="age-group" class="form-label">
+                        <span>Enter age group</span>
+                        <span class="tooltip-button">
+                            <span>?</span>
+                            <div class="tooltip">Age group you belong to</div>
+                        </span>
+                    </label>
+                    <div class="form-input-holder">
+                        <select
+                            id="age-group"
+                            defaultValue="0"
+                            class="form-input"
+                            name="age-group"
+                        >
+                            <option value="0" disabled selected>
+                                Select Age Group
+                            </option>
+                            <option value="1">1. Less than 40 years</option>
+                            <option value="2">2. Between 40 & 60 years</option>
+                            <option value="3">
+                                3. Greater than or equal to 60 years
+                            </option>
+                        </select>
+                        <span
+                            class="tooltip-button warning-button hidden"
+                            id="age-group-warning-button"
+                        >
+                            <span>!</span>
+                            <span class="tooltip">Age group is mandatory</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="deductions" class="form-label">
+                        <span>Enter your applicable deductions</span>
+                        <span class="tooltip-button">
+                            <span>?</span>
+                            <span class="tooltip">
+                                Deductions include any loan interests,
+                                insurance, rent, etc
+                            </span>
+                        </span>
+                    </label>
+                    <div class="form-input-holder">
+                        <input
+                            id="deductions"
+                            type="text"
+                            class="form-input"
+                            name="deductions"
+                            placeholder="Add total applicable deductions"
+                            autocomplete="off"
+                        />
+                        <span
+                            class="tooltip-button warning-button hidden"
+                            id="deductions-warning-button"
+                        >
+                            <span>!</span>
+                            <span class="tooltip">
+                                Deductions must be a valid non-negative number
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <button>Submit</button>
+            </div>
+        </form>
+        <div id="result-overlay" class="result-overlay hidden">
+            <div id="result-container" class="result-container">
+                <div class="result">
+                    <div>Your overall income will be</div>
+                    <div id="net-income">30000</div>
+                    <div>
+                        <span>Tax deductions:</span>
+                        <span id="tax-deducted">3000</span>
+                    </div>
+                </div>
+                <button id="close-button" class="button">Close</button>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
